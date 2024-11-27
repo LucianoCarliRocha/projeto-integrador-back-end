@@ -6,11 +6,10 @@ from datetime import datetime
 
 class Reserva(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    usuario = models.ForeignKeyfield(User, on_delete=models.CASCADE)  # Referência ao usuário (pode ser um objeto ou ID)
-    data_hora_reserva = models.DateTimeField()  # Data e hora da reserva (agora)
-    data_hora_evento = models.DateTimeField()  # Data e hora do evento
-    descricao_evento = models.TextField()  # Descrição do evento
-
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
+    data_hora_reserva = models.DateTimeField() 
+    data_hora_evento = models.DateTimeField()  
+    descricao_evento = models.TextField()
     # def atualizar_status(self, novo_status):
     #     """
     #     Atualiza o status da reserva.
