@@ -16,6 +16,17 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication', ],
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.IsAuthenticated', ],
+}
+
+from datetime import timedelta 
+SIMPLE_JWT = { 'ACCESS_TOKEN_LIFETIME': timedelta(days=100),
+'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+'ROTATE_REFRESH_TOKENS': False,'BLACKLIST_AFTER_ROTATION': True, 
+} 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -44,6 +55,7 @@ SWAGGER_SETTINGS = {'SECURITY_DEFINITIONS': {'Bearer': {
 }
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,6 +68,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'reservas',
     'drf_yasg',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
