@@ -36,7 +36,10 @@ SECRET_KEY = 'django-insecure-ige%w0d#he^mko6)2qgfhahbrv&cw$d@a1tsu@q6#ghyk_@2_p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:5173"
+]
 
 
 SWAGGER_SETTINGS = {'SECURITY_DEFINITIONS': {'Bearer': {
@@ -69,6 +72,7 @@ INSTALLED_APPS = [
     'reservas',
     'drf_yasg',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
