@@ -8,7 +8,8 @@ from . import models, serializer as serializers
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from django.contrib.auth.models import User
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.validators import ValidationError
 
 @swagger_auto_schema(
@@ -34,6 +35,7 @@ from rest_framework.validators import ValidationError
     },
 )
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def register_user(request):
     nome = request.data.get('nome')
     email = request.data.get('email')
